@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pagi — Kalender Alarm</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <main>
+
+      <!-- Judul, tanggal hari ini, dan jam perangkat -->
+      <header>
+        <div>
+          <h1>Kalender Alarm Pagi</h1>
+          <p id="today-date"></p>
+        </div>
+        <time class="clock" id="clock" aria-label="Jam perangkat"></time>
+      </header>
+      <div class="layout">
+
+        <!-- Kalender dan navigasi bulan -->
+        <section aria-labelledby="month">
+          <div class="toolbar">
+            <h2 id="month" aria-live="polite"></h2>
+            <button id="today">Hari ini</button>
+            <button id="prev" aria-label="Bulan sebelumnya">‹</button>
+            <button id="next" aria-label="Bulan berikutnya">›</button>
+          </div>
+          <div class="grid" id="calendar">
+          </div>
+          <p class="legend"><span class="dot"></span>Ada alarm tersimpan</p>
+        </section>
+
+        <!-- Formulir pengaturan alarm untuk tanggal terpilih -->
+        <aside>
+          <h2>Atur alarm</h2>
+          <p id="selected-date"></p>
+          <form id="alarm-form">
+            <label for="alarm-time">Jam bangun</label>
+            <input type="time" id="alarm-time" value="06:00" required>
+            <div class="actions">
+              <button class="primary">Simpan alarm</button>
+              <button type="button" id="remove" hidden>Hapus</button>
+              <button type="button" id="test">Tes suara</button>
+            </div>
+          </form>
+          <p id="status" role="status"></p>
+          <p class="note">Gunakan jam perangkat. Agar alarm berbunyi, biarkan halaman terbuka dan perangkat tetap aktif.</p>
+        </aside>
+      </div>
+    </main>
+
+    <!-- Jendela yang muncul ketika alarm aktif -->
+    <dialog id="ring">
+      <h2>Waktunya bangun!</h2>
+      <p id="ring-details"></p>
+      <button class="primary" id="stop">Matikan alarm</button>
+    </dialog>
+    <script src="script.js"></script>
+  </body>
+</html>
